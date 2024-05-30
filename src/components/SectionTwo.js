@@ -3,7 +3,7 @@ import { useState } from "react";
 const SectionTwo = () => {
     const [numberList, setNumberList] = useState({
         numbers: "",
-        prefix:""
+        prefix: ""
     });
     const formData = [
         {
@@ -113,29 +113,34 @@ const SectionTwo = () => {
                                 className=" min-w-full bg-primary/10 px-5 md:px-4 py-4
                         rounded-lg"
                             >
-                                {id==="prefix"?<input
-                                    disabled={loading}
-                            
-                                    value={numberList[id]}
-                                    onChange={handleInput}
-                                    className="outline-none border-none
-                                    bg-transparent placeholder:text-primary/30"
-                                    id={id}
-                                    type={type}
-                                    name={name}
-                                    placeholder={placeholder}
-                                />:<textarea
-                                    disabled={loading}
-                                    rows={10}
-                                    value={numberList[id]}
-                                    onChange={handleInput}
-                                    className="outline-none border-none
-                                    bg-transparent placeholder:text-primary/30"
-                                    id={id}
-                                    type={type}
-                                    name={name}
-                                    placeholder={placeholder}
-                                />}
+                                {id === "prefix" ? (
+                                    <input
+                                        disabled={loading}
+                                        value={numberList[id]}
+                                        onChange={handleInput}
+                                        className="outline-none border-none
+                                    bg-transparent placeholder:text-primary/30
+                                    text-black"
+                                        id={id}
+                                        type={type}
+                                        name={name}
+                                        placeholder={placeholder}
+                                    />
+                                ) : (
+                                    <textarea
+                                        disabled={loading}
+                                        rows={10}
+                                        value={numberList[id]}
+                                        onChange={handleInput}
+                                        className="outline-none border-none
+                                    bg-transparent placeholder:text-primary/30
+                                    text-black"
+                                        id={id}
+                                        type={type}
+                                        name={name}
+                                        placeholder={placeholder}
+                                    />
+                                )}
                             </div>
                         </div>
                     ))}
