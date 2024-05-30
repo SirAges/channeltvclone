@@ -29,63 +29,60 @@ const SectionTwo = () => {
         setNumberList(prev => ({ ...prev, [e.target.name]: e.target.value }));
     };
 
-    const handleSubmit = async e => {
-        setLoading(true);
-        const { numbers } = numberList;
-        const canSave = [numbers].every(Boolean);
-        e.preventDefault();
+const handleSubmit = async (e) => {
+  setLoading(true);
+  const { numbers } = numberList;
+  const canSave = numbers.trim().length > 0;
+  e.preventDefault();
 
-        try {
-            if (!canSave) {
-                alert("Please paste your numbers");
-                setLoading(false);
-                return;
-            }
+  try {
+    if (!canSave) {
+      alert("Please paste your numbers");
+      setLoading(false);
+      return;
+    }
 
-            function createVCard(number) {
-                const formattedNumber = number.replace(
-                    /(\d{3})(\d{3})(\d{4})/,
-                    "$1-$2-$3"
-                );
-                const fullName = `${numberList.prefix}${number}`;
+    function createVCard(number) {
+      const formattedNumber = number.replace(
+        /(\d{3})(\d{3})(\d{4})/,
+        "$1-$2-$3"
+      );
+      const fullName = `${numberList.prefix}${number}`;
 
-                const vCard = `BEGIN                 :VCARD
-                              VERSION:2.1
-                              N:;${fullName};;;
-                      FN:${fullName}
-                      TEL;CELL:+${number}
-                      END:VCARD`;
+      const vCard = `BEGIN:VCARD
+VERSION:2.1
+N:;${fullName};;;
+FN:${fullName}
+TEL;CELL:+${number}
+END:VCARD`;
 
-                return vCard;
-            }
+      return vCard;
+    }
 
-            let vcfContent = "BEGIN:VCARD\nVERSION:2.1\n";
-            const nums = numbers.split("\n");
-            if (Array.isArray(nums)) {
-                nums.forEach(number => {
-                    const vCard = createVCard(number);
-                    vcfContent += `${vCard}\n`;
-                });
-            }
+    let vcfContent = "BEGIN:VCARD\nVERSION:2.1\n";
+    const nums = numbers.split("\n");
+    nums.forEach((number) => {
+      const vCard = createVCard(number.trim());
+      vcfContent += `${vCard}\n`;
+    });
 
-            vcfContent += "END:VCARD";
+    vcfContent += "END:VCARD";
 
-            // Download the vcf file
-            const blob = new Blob([vcfContent], { type: "text/vcard" });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = "contacts.vcf";
-            a.click();
+    // Download the vcf file
+    const blob = new Blob([vcfContent], { type: "text/vcard" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${numberList.prefix}.vcf`;
+    a.click();
 
-            URL.revokeObjectURL(url);
-            setLoading(false);
-        } catch (error) {
-            console.log("error", error);
-            setLoading(false);
-        }
-    };
-
+    URL.revokeObjectURL(url);
+    setLoading(false);
+  } catch (error) {
+    console.log("error", error);
+    setLoading(false);
+  }
+};
     return (
         <section
             className="bg-white md:px-8 flex flex-1 flex-col w-full min-h-screen items-center space-y-6"
