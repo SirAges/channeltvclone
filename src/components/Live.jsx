@@ -39,8 +39,8 @@ const Live = () => {
     return (
         <div className="flex flex-1">
             <YouTube
-                videoId={"YWfislAmXME"}
-                id={"YWfislAmXME"}
+                videoId={"W8nThq62Vb4"}
+                id={"W8nThq62Vb4"}
                 title={"channels live stream"}
                 opts={opts}
                 loading={<ScreenLoader />}
