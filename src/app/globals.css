@@ -2,26 +2,106 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.ProseMirror:focus {
+    outline: none;
+}
+.white {
+    background-color: white;
+    box-shadow:
+        0 4px 6px rgba(0, 0, 0, 0.1),
+        0 1px 3px rgba(0, 0, 0, 0.08);
+}
+h1 {
+    font-size: 2rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+h2 {
+    font-size: 1.5rem;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+h3 {
+    font-size: 1.25rem;
+}
+
+h4 {
+    font-size: 1rem;
+}
+
+h5 {
+    font-size: 0.875rem;
+}
+
+h6 {
+    font-size: 0.75rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.2;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+ul {
+}
+ul::marker,
+ol::marker {
+    color: #022d62;
+}
+ul li {
+    margin-bottom: 0.5em;
+}
+
+ul {
+    padding-left: 1.5em;
+    list-style-type: square;
+}
+
+ol {
+    list-style-type: decimal;
+    padding-left: 1.5em;
+}
+
+ol li {
+    margin-bottom: 0.5em;
+}
+
+ol {
+    list-style-type: decimal;
+}
+.link {
+    color: #022d62;
+    font-style: italic;
+}
+.text-ellipsis2 {
+    width: max-content; /* Adjust the width as needed */
+    white-space: nowrap;
+}
+
+.marquee {
+    animation: marquee 20s linear infinite;
+    animation-delay: 2s; /* Ensure the animation starts immediately */
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }

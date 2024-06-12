@@ -8,13 +8,17 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                primary: "#096b0b",
-                title: "#096b17",
-
-                background: "#edfef0",
-
-                card: "#88d69034",
-                accent: "#cdedd0",
+                primary: "#022d62",
+                title: "#4d4d4d",
+                excerpt: "#7a7a7a",
+                body: "#272727",
+                background: "#f8fbfe",
+                error: "#ff0b0b",
+                white2: "#f6f3f3",
+                success: "#00ca03",
+                warn: "#fdc305",
+                card: "#d9e5f472",
+                accent: "#cddcee",
                 secondary: "#459b49"
             },
             backgroundImage: {
