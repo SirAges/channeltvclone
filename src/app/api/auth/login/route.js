@@ -39,7 +39,7 @@ export const POST = async request => {
                 fullName: `${foundUser.firstName} ${foundUser.lastName}`
             },
             process.env.NEXT_PUBLIC_KEY,
-            { expiresIn: "10s" }
+            { expiresIn: "1d" }
         );
 
         const refreshToken = await jwt.sign(

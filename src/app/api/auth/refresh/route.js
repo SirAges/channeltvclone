@@ -36,10 +36,10 @@ export const POST = async () => {
                         fullName: `${foundUser.firstName} ${foundUser.lastName}`
                     },
                     process.env.NEXT_PUBLIC_KEY,
-                    { expiresIn: "30m" }
+                    { expiresIn: "1d" }
                 );
 
-                console.log("access" + accessToken);
+          
                 return accessToken;
             }
         );

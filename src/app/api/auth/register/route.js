@@ -4,7 +4,7 @@ import CryptoJs from "crypto-js";
 
 export const POST = async (request) => {
   const user = await request.json();
-  console.log("user", user);
+  
   const encPassword = CryptoJs.AES.encrypt(
     user.password,
     process.env.NEXT_PUBLIC_KEY,

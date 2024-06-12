@@ -16,7 +16,7 @@ export async function middleware(req) {
     const btoken = req.headers.get("authorization");
     const token = btoken?.replace("Bearer ", "");
 
-    console.log("tokenauthoauthorization", token);
+
 
     const verifiedToken =
         token &&
@@ -24,7 +24,7 @@ export async function middleware(req) {
             console.log("err", err);
         }));
     const role = verifiedToken?.roles;
-    console.log("role", role, verifiedToken);
+
     
     
     const method = req.method;
