@@ -22,6 +22,6 @@ export const POST = async request => {
         return new Response("JSON file has been saved!", { status: 200 });
     } catch (error) {
     
-        return new Response("Failed to create JSON file", { status: 500 });
+        return new Response("Failed to create JSON file"+error.message, { status: 500 });
     }
 };

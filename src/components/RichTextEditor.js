@@ -83,13 +83,13 @@ const RichTextEditor = ({ id, setValue }) => {
                             leading-tight focus:outline-none
                             focus:shadow-outline"
                         />
-                        <h1
+                        <p
                             className="bg-primary rounded-r-md px-2 py-3
                         text-white appearance-none border focus:outline-none focus:shadow-outline"
                             onClick={handleInput}
                         >
                             set
-                        </h1>
+                        </p>
                     </div>
                     <hr className="my-2" />
                 </div>
