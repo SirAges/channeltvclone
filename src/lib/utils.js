@@ -1,5 +1,3 @@
-
-
 import { format, formatDistanceToNow } from "date-fns";
 import { useAxios } from "@/lib/useAxios";
 import parse from "html-react-parser";
@@ -7,7 +5,7 @@ import DOMPurify from "dompurify";
 export const formatDates = dateString => {
     try {
         if (!dateString) {
-            throw new Error("Invalid date: dateString is empty or undefined");
+            throw new Error("Invalid date: dateString is empty");
         }
 
         const date = new Date(dateString);
