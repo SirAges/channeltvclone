@@ -1,7 +1,8 @@
 import { jwtDecode } from "jwt-decode";
 import { customToast } from "@/lib/customToast";
-import { token } from "../../token.json"; //
+// import { token } from "../../token.json"; //
 export const useAuth = () => {
+    const token = sessionStorage.getItem("token");
     console.log("token", token);
     let isOwner = false;
     let isAdmin = false;

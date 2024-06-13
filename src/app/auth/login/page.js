@@ -71,7 +71,9 @@ const LoginPage = () => {
             const res = await useAxios.post("/auth/login", data);
             console.log("res", res);
             if (res.status === 200) {
-            await useAxios.post("/json",res.data)
+              sessionStorage.setItem("token",res.data)
+              
+            // await useAxios.post("/json",res.data)
                 customToast("successfully logged in", "success");
                 router.replace(origin ? origin : "/");
             }
