@@ -1,7 +1,7 @@
 "use client";
 import { Form } from "@/components";
 import { useAxios } from "@/lib/useAxios";import { customToast } from
-"../../../lib/customToast";
+"@/lib/customToast";
 import CryptoJs from "crypto-js";
 import { jwtDecode } from "jwt-decode";
 import Image from "next/image";

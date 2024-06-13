@@ -1,5 +1,5 @@
 "use client";
-import { Suspense, useState, useEffect } from "react";
+import {  useState, useEffect } from "react";
 
 import YouTube from "react-youtube";
 import { ScreenLoader } from "@/components";

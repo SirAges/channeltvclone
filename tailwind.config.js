@@ -12,7 +12,7 @@ module.exports = {
                 title: "#4d4d4d",
                 excerpt: "#7a7a7a",
                 body: "#272727",
-                background: "#f8fbfe",
+                background: "#ffffff",
                 error: "#ff0b0b",
                 white2: "#f6f3f3",
                 success: "#00ca03",

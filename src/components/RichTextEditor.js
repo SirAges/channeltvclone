@@ -1,8 +1,8 @@
 "use client";
 import { useEditor, EditorContent } from "@tiptap/react";
 import React from "react";
-import { extensions } from "../lib/editorExtensions";
-import { MenuBar } from "../lib/editorIcons";
+import { extensions } from "@/lib/editorExtensions";
+import { MenuBar } from "@/lib/editorIcons";
 import { useEffect, useState } from "react";
 
 const content =""

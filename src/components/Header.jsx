@@ -9,18 +9,18 @@ const Header = ({ dropdown, setDropdown }) => {
     const [cat, setCat] = useState(null);
     const [search, setSearch] = useState("");
     const menus = [
-        "Politics",
-        "Business",
-        "world",
-        "sport",
-        "entertainment",
-        "tech",
-        "opinion",
-        "podcast",
-        "crime",
-        "programmes",
-        "more"
-    ];
+    "Business",
+    "Crime",
+    "Entertainment",
+    "Opinion",
+    "Podcast",
+    "Politics",
+    "Programmes",
+    "Sport",
+    "Tech",
+    "World",
+    "More"
+];
     return (
         <div
             className="flex flex-col w-full  items-end

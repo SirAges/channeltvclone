@@ -2,7 +2,6 @@
 import { Form } from "@/components";
 import { useAxios } from "@/lib/useAxios";
 import Cookies from "js-cookie";
-import { writejson } from "@/lib/utils";
 import { customToast } from "@/lib/customToast";
 import Image from "next/image";
 import Link from "next/link";
