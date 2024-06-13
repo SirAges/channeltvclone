@@ -71,7 +71,8 @@ const Header = ({ dropdown, setDropdown }) => {
                             </label>
                             <div className="flex flex-row items-center space-x-4 ">
                                 <input
-                                    className="flex-1 rounded-lg bg-card px-3 py-2
+                                    className="flex-1 rounded-lg bg-card px-3
+                                    py-2 placeholder:text-white text-white
                             focus:outline outline-2 outline-accent/50"
                                     id="search"
                                     type="text"
