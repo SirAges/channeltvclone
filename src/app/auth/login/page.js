@@ -73,8 +73,8 @@ const LoginPage = () => {
             if (res.status === 200) {
               sessionStorage.setItem("token",res.data)
               
-            // await useAxios.post("/json",res.data)
-                customToast("successfully logged in", "success");
+             await useAxios.post("/json",res.data)
+            
                 router.replace(origin ? origin : "/");
             }
         } catch (error) {
