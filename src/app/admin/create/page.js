@@ -7,7 +7,8 @@ import { customToast } from "@/lib/customToast";
 import { useState } from "react";
 import * as z from "zod";
 const CreatePage = () => {
-    const { id ,fullName} = useAuth();
+  
+    const { id, fullName } = useAuth();
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
     const pathname = usePathname();
@@ -82,7 +83,9 @@ const CreatePage = () => {
     };
 
     const schema = z.object({
-        title: z.string().min(10, { message: "Title must be at least 10 characters long" })
+        title: z
+            .string()
+            .min(10, { message: "Title must be at least 10 characters long" })
             .max(100, { message: "Title cannot exceed 40 characters" }),
         excerpt: z
             .string()
@@ -105,7 +108,7 @@ const CreatePage = () => {
             setIsLoading(true);
             const vals = { ...val, author: fullName };
             const res = await useAxios.post("/news", vals);
-            console.log('res', res)
+            console.log("res", res);
             if (res.status === 200) {
                 customToast(res.data, "success");
                 setIsLoading(false);

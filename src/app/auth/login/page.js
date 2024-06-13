@@ -1,6 +1,7 @@
 "use client";
 import { Form } from "@/components";
 import { useAxios } from "@/lib/useAxios";
+import Cookies from "js-cookie";
 import { writejson } from "@/lib/utils";
 import { customToast } from "@/lib/customToast";
 import Image from "next/image";
@@ -9,6 +10,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import * as z from "zod";
 const LoginPage = () => {
+  
     const [isLoading, setIsLoading] = useState(false);
     const [resetPassword, setResetPassword] = useState(false);
     const router = useRouter();
@@ -64,17 +66,16 @@ const LoginPage = () => {
         email: z.string().email({ message: "Must be a valid email" })
     });
     const custoast = (res, type) => {};
-
     const onSubmit = async data => {
         try {
             setIsLoading(true);
             const res = await useAxios.post("/auth/login", data);
             console.log("res", res);
             if (res.status === 200) {
-              sessionStorage.setItem("token",res.data)
-              
-             await useAxios.post("/json",res.data)
-            
+                // Save login result to cookie
+                Cookies.set("token", res.data); // Assuming login result is in res.data
+
+                customToast("Logged in successfully", "success");
                 router.replace(origin ? origin : "/");
             }
         } catch (error) {

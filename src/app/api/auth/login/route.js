@@ -2,7 +2,7 @@ import { connectToDB } from "@/lib/database";
 import User from "@/models/user";
 import { serialize } from "cookie";
 import CryptoJs from "crypto-js";
-import jwt from "jsonwebtoken"
+import jwt from "jsonwebtoken";
 export const POST = async request => {
     const user = await request.json();
     const { password, email } = user;
@@ -30,7 +30,7 @@ export const POST = async request => {
         if (!match) {
             return new Response("user is Unauthorized", { status: 401 });
         }
-      
+
         const accessToken = await jwt.sign(
             {
                 id: foundUser._id,
@@ -64,6 +64,7 @@ export const POST = async request => {
             message: "Authenticated!"
         };
 
+      
         return new Response(JSON.stringify(accessToken), {
             status: 200,
             headers: { "Set-Cookie": seralized }

@@ -15,7 +15,8 @@ import {
     Heading5,
     Heading6,
     ListChecks,
-    ListOrdered,Loader,
+    ListOrdered,
+    Loader,
     Braces,
     Quote,
     SeparatorHorizontal,
@@ -33,7 +34,7 @@ import {
     AlignJustify,
     Youtube
 } from "lucide-react";
-export const MenuBar = ({ editor, setInputbox, inputbox, setIdx }) => {
+export const MenuBar = ({ editor, setInputbox, inputbox, setIdx, idx }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [imageLoading, setImagesLoading] = useState(false);
     if (!editor) {
@@ -59,7 +60,7 @@ export const MenuBar = ({ editor, setInputbox, inputbox, setIdx }) => {
 
                 if (result) {
                     const res = await uploadImage(result);
-                  
+
                     if (res) {
                         // editor.chain().focus().setImage({ src: res }).run();
                         editor
@@ -94,6 +95,17 @@ export const MenuBar = ({ editor, setInputbox, inputbox, setIdx }) => {
 
     const handleColor = e => {
         editor.chain().focus().setColor(e.target.value).run();
+    };
+
+    const handleInputBox = clicked => {
+        if (inputbox && idx !== clicked) {
+            setIdx(clicked);
+        } else if (inputbox && idx === clicked) {
+            setInputbox(false);
+        } else {
+            setIdx(clicked);
+            setInputbox(true);
+        }
     };
 
     return (
@@ -316,10 +328,7 @@ export const MenuBar = ({ editor, setInputbox, inputbox, setIdx }) => {
                 className="hidden"
             />
             <Link
-                onClick={() => {
-                    setIdx("link");
-                    setInputbox(prev => !prev);
-                }}
+                onClick={() => handleInputBox("link")}
                 className={
                     editor.isActive("link", { color: "#958DF1" })
                         ? "bg-primary text-white rounded-md h-8 w-8 p-1 shadow-black/10 shadow-sm"
@@ -384,10 +393,7 @@ export const MenuBar = ({ editor, setInputbox, inputbox, setIdx }) => {
             />
 
             <Youtube
-                onClick={() => {
-                    setIdx("youtube");
-                    setInputbox(prev => !prev);
-                }}
+                onClick={() => handleInputBox("youtube")}
                 className={
                     editor.isActive("youtube")
                         ? "bg-primary text-white rounded-md h-8 w-8 p-1 shadow-black/10 shadow-sm"

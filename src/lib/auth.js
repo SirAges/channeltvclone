@@ -1,8 +1,8 @@
-import { jwtVerify } from "jose";
+"use client";
 import { jwtDecode } from "jwt-decode";
 export const getJwtSecretKey = async () => {
     const secret = process.env.NEXT_PUBLIC_ACCESS_TOKEN_SECRET;
-  
+
     if (!secret || secret.length === 0) {
         throw new Error("no secret key");
     }
@@ -11,8 +11,6 @@ export const getJwtSecretKey = async () => {
 
 export const verifyAuth = async token => {
     try {
-      
-
         const decoded = jwtDecode(token);
 
         return decoded;

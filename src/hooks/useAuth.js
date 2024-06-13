@@ -1,9 +1,10 @@
+"use client";
+import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
 import { customToast } from "@/lib/customToast";
-import { token } from "../../token.json"; 
-export const useAuth = () => {
-  
 
+export const useAuth =  () => {
+    const token = Cookies.get("token");
     let isOwner = false;
     let isAdmin = false;
     let isCreator = false;
@@ -11,7 +12,7 @@ export const useAuth = () => {
     let status = "";
 
     try {
-        if (token) {
+        if (token&&token!==undefined) {
             const decoded = jwtDecode(token);
 
             const exp = new Date(decoded?.exp);

@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useAxios } from "@/lib/useAxios";
-
+import { useAxios } from "@/lib/useAxios"
 import { useRouter, usePathname } from "next/navigation";
 import { useAuth } from "@/hooks/useAuth";
 import { ScreenLoader } from "@/components";
@@ -22,6 +21,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Share, Similar, Form } from "./";
 const SingleNews = ({ newsId }) => {
+  
     const [news, setNews] = useState({});
     const [comments, setComments] = useState([]);
     const { id, fullName } = useAuth();
