@@ -1,4 +1,4 @@
-"use client";
+
 import { jwtDecode } from "jwt-decode";
 export const getJwtSecretKey = async () => {
     const secret = process.env.NEXT_PUBLIC_ACCESS_TOKEN_SECRET;

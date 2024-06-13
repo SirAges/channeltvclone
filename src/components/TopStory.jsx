@@ -33,7 +33,7 @@ const TopStory = ({ topStory }) => {
                         src={image}
                         alt={title}
                         fill
-                        priority
+                        
                     />
                 </div>
                 <div className="px-2 py-2 md:absolute md:bottom-0 md:bg-black/40">

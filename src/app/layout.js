@@ -5,7 +5,9 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
     title: "ChannelsTv",
-    description: "Your news source"
+    description: "Your news source",icons: {
+        icon: "/assets/images/tvlogo.png"
+    }
 };
 
 export default function RootLayout({ children }) {
