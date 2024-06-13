@@ -59,7 +59,7 @@ const CategoryNews = () => {
     }
     if (loading) return <ScreenLoader />;
     return news.length ? (
-        <div className="flex flex-col w-full px-20">
+        <div className="flex flex-col w-full md:px-20">
             <h5
                 className="font-bold capitalize
                  px-4 py-4 bg-background text-primary top-0 sticky z-40"
