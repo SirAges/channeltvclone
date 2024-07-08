@@ -19,7 +19,7 @@ import {
 const Wrapper = () => {
     const [dropdown, setDropdown] = useState(false);
     const [news, setNews] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [topStory, setTopStory] = useState({});
     const [headlines, setHeadlines] = useState([]);
     const [moreStory, setMoreStory] = useState([]);

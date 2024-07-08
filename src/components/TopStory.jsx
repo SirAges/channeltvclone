@@ -33,6 +33,7 @@ const TopStory = ({ topStory }) => {
                         src={image}
                         alt={title}
                         fill
+                        priority
                         
                     />
                 </div>
